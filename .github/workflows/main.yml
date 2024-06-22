@@ -1,0 +1,26 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - version/prototype 
+
+env:
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+
+jobs:
+  build_dockerhub_image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Build and Push Next.js App Docker Image
+        run: |
+          docker build -t cyntaxinc/api.cyntax.org:backend .
+          docker push cyntaxinc/api.cyntax.org:backend
