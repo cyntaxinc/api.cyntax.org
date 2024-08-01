@@ -1,0 +1,37 @@
+{
+  "name": "api.cyntax.org",
+  "version": "1.0.0",
+  "description": "Nodejs Backend for Websites on Shared Server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon --exec \"node src/index\"",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cyntaxinc/api.cyntax.org.git"
+  },
+  "author": "Cyntax Inc.",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/cyntaxinc/api.cyntax.org/issues"
+  },
+  "homepage": "https://github.com/cyntaxinc/api.cyntax.org/#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.1",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "eslint": "^9.7.0",
+    "globals": "^15.8.0",
+    "nodemon": "^3.1.4"
+  }
+}
